@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+  <head>
+    <meta charset="utf-8">
+    <title>Rtifact</title>
+    <link rel="stylesheet" href="Example.css">
+    <link rel="components" href="MapNavComponent.html">
+    <link rel="components" href="OverlayComponent.html">
+  </head>
+  <body>
+      <div is="x-map-nav" id="map-nav" user="{{app.user}}" map="{{map}}"></div>
+       <template iterate='overlay in app.overlays'>
+          <div style='display: none; height: 1px' is="x-overlay-component" overlay="{{overlay}}" map="{{map}}"></div>
+       </template>
+	    <div id="map"></div>
+      <script type="application/dart" src="Example.dart"></script>
+      <script src="https://maps.googleapis.com/maps/api/js?sensor=true" type="text/javascript"></script>
+      <script src="packages/browser/dart.js" type="text/javascript"></script>
+  </body>
+</html>

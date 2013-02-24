@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<!--
+Copyright (c) 2012, the Dart project authors.  Please see the AUTHORS file
+for details. All rights reserved. Use of this source code is governed by a
+BSD-style license that can be found in the LICENSE file.
+-->
+<html lang="en">
+  <element name="x-overlay-component" id="rcomp" constructor="OverlayComponent" extends="div">
+    <template>
+          <div on-click="edit($event)">
+            <div id="overlay-content" style="color: white">{{overlay.message}}</div>
+          </div>
+    </template>
+    <script type="application/dart" src="OverlayComponent.dart"></script>
+  </element>
+</html>

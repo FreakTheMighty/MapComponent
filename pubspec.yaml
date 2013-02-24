@@ -1,0 +1,8 @@
+name: Rtifact
+version: 0.0.1
+description: A sample application
+dependencies:
+  objectory: any
+  google_maps: any
+  browser: any
+  web_ui: any
