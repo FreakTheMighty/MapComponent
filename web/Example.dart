@@ -1,6 +1,7 @@
 library Rtifact;
 
 import 'dart:isolate';
+import 'dart:async';
 
 import 'package:web_ui/watcher.dart' as watchers;
 
@@ -15,7 +16,7 @@ import 'package:google_maps/js_wrap.dart' as jsw;
 ComponentMap map;
 
 void main() {
- 
+
 //  query("#text");
 //  query("#postcontent").on.scroll.add(updateLook);
 
@@ -36,12 +37,14 @@ void main() {
 
   });
 
-  window.setTimeout((){
-    window.navigator.geolocation.watchPosition(positionFound, 
-        positionNotFound);
-    window.navigator.geolocation.getCurrentPosition(positionFound, 
-        positionNotFound);
-  },1000);
+  Timer timer;
+  timer = new Timer(const Duration(milliseconds: 1000), () {
+    Stream<Geoposition> watchPosition = window.navigator.geolocation.watchPosition();
+    watchPosition.listen(positionFound, onError: positionNotFound);
+    Future<Geoposition> currentPostion = window.navigator.geolocation.getCurrentPosition();
+    currentPostion.then(positionFound, onError: positionNotFound);
+    timer.cancel();
+  });
 }
 
 void updateLook(Event event){
@@ -61,7 +64,7 @@ void positionFound(Geoposition event){
   });
 }
 
-void positionNotFound(PositionError event){
-  print(event.message);
+void positionNotFound(error){
+  print(error);
   print("Location not found");
 }
