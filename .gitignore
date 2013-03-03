@@ -1,8 +1,7 @@
 .buildlog
-web/out/*
-web/out/*
-web/out/*
-packages/*
+web/out
+packages
 pubspec.lock
 
 *.*.sw*
+

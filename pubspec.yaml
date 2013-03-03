@@ -5,4 +5,5 @@ dependencies:
   objectory: any
   google_maps: any
   browser: any
-  web_ui: any
+  web_ui:
+    git: https://github.com/FreakTheMighty/web-ui.git
