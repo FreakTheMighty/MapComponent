@@ -25,7 +25,6 @@ class OverlayComponent extends WebComponent {
     final neBound = new gmaps.LatLng(overlay.loc.lat, 
         overlay.loc.lng + 1);
     final bounds = new gmaps.LatLngBounds(seBound, neBound);
-    print(this.children);
     Element elem = this.children[0].parent;
     DivOverlay divOverlay = jsw.retain(new DivOverlay(bounds, elem, map));
     js.scoped(() {
@@ -35,8 +34,10 @@ class OverlayComponent extends WebComponent {
         );
         jsw.retain(marker);
     });
-    window.setTimeout((){elem.style.setProperty("display","inline");}, 10);
 
+    // Timer is used to reduce flickering caused by adding and removing of
+    // elements.  This would be better fixed by not removing items.
+    new Timer(10, (){elem.style.setProperty("display","inline");});
   }
     
   void removed(){

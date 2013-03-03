@@ -13,6 +13,7 @@ class DivOverlay extends OverlayView {
   DivElement _div;
 
   DivOverlay(LatLngBounds bounds, Element element, GMap map) : super() {
+    
     set_onAdd(_onAdd);
     set_draw(_draw);
     set_onRemove(_onRemove);
@@ -97,7 +98,6 @@ class DivOverlay extends OverlayView {
       ;
 //    print(div.width);
       num scale = (ne.x - sw.x)/absoluteWidth;
-      print(scale);
 
     div.style.setProperty("-webkit-transform", "scale(${scale*.004})");
     div.style.setProperty("-webkit-transform-origin", "0% 0%");
