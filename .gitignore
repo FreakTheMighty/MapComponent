@@ -1,4 +1,8 @@
 .buildlog
-web/out/Example.dart.map
-web/out/MapNavComponent.dart.map
-web/out/OverlayComponent.dart.map
+web/out/*
+web/out/*
+web/out/*
+packages/*
+pubspec.lock
+
+*.*.sw*
